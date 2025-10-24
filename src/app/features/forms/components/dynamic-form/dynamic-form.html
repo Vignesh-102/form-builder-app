@@ -7,7 +7,7 @@
     @for (item of toolboxFields; track item) {
     <div class="toolbox-item" cdkDrag>
       {{ item.label }}
-      <button type="button" class="add-btn" (click)="addFieldFromToolbox(item)">
+      <button [disabled]="previewMode" type="button" class="add-btn" (click)="addFieldFromToolbox(item)">
         + Add
       </button>
     </div>
@@ -34,91 +34,12 @@
 
     <!-- Builder Mode -->
     @if (!previewMode) {
-    <form [formGroup]="form" (ngSubmit)="onCreate()">
-      <div formArrayName="fields">
-        @for (field of fieldsFormArray.controls; track field.get('label')?.value) {
-        <div [formGroupName]="$index" cdkDrag class="canvas-item">
-          <!-- Editable label / question -->
-          <div class="field-header">
-            <input type="text" formControlName="label" class="label-editor" placeholder="Question title" />
-            <button type="button" title="delete" class="delete-btn" (click)="deleteField($index)">✕</button>
-          </div>
-
-          <!-- Non-select field preview -->
-          @if (field.get('type')?.value !== 'select') {
-          <input class="form-field-value" [disabled]="true" [type]="field.get('type')?.value"
-            placeholder="Preview input" />
-          }
-
-          <!-- Select field editor -->
-          @if (field.get('type')?.value === 'select') {
-          <div class="select-options" [formArrayName]="'options'">
-            <div class="options-list">
-              <div *ngFor="let optionCtrl of getOptionsFormArray($index).controls; let i = index" class="option-row">
-                <span class="option-index">#{{ i + 1 }}</span>
-                <input type="text" [formControlName]="i" placeholder="Enter option {{ i + 1 }}" class="option-input" />
-                <button type="button" class="delete-option-btn" title="Remove option"
-                  (click)="removeOption($index, i)">✖</button>
-              </div>
-            </div>
-            <button type="button" class="add-option-btn" (click)="addOption($index)">+ Add Option</button>
-          </div>
-          }
-
-        </div>
-
-        }
-      </div>
-
-      <!-- Form actions -->
-      @if (((fields$ | async) ?? []).length > 0) {
-      <div class="form-actions">
-        <button type="submit" class="action-button">Create Form</button>
-        <button type="button" (click)="clearCanvas()" class="action-button">Clear Form</button>
-        <button type="button" (click)="undo()" [disabled]="!(canUndo$ | async)" class="action-button secondary">
-          Undo
-        </button>
-        <button type="button" (click)="redo()" [disabled]="!(canRedo$ | async)" class="action-button secondary">
-          Redo
-        </button>
-      </div>
-      }
-    </form>
+    <app-builder-mode></app-builder-mode>
     }
-
 
     <!-- Preview Mode -->
     @if (previewMode) {
-    <form [formGroup]="form" (ngSubmit)="onCreate()">
-      @for (field of (fields$ | async); track field) {
-      <div class="canvas-item">
-        <label>{{ field.label }}</label>
-
-        @if (field.type === 'text' || field.type === 'email') {
-        <input [type]="field.type" [formControlName]="field.name" />
-        }
-
-        @if (field.type === 'select') {
-        <select [formControlName]="field.name">
-          <option value="">Select {{ field.label }}</option>
-          @for (opt of field.options; track opt) {
-          <option [value]="opt">{{ opt }}</option>
-          }
-        </select>
-        }
-
-        @if (form.get(field.name)?.invalid && form.get(field.name)?.touched) {
-        <div class="error-message">
-          Field is invalid or required
-        </div>
-        }
-      </div>
-      }
-
-      @if (((fields$ | async) ?? []).length > 0) {
-      <button type="submit" [disabled]="form.invalid">Submit</button>
-      }
-    </form>
+    <app-preview-mode></app-preview-mode>
     }
   </div>
 </div>

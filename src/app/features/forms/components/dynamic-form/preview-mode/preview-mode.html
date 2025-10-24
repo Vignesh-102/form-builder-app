@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+    <div formArrayName="fields">
+        @for (fieldGroup of fieldsFormArray.controls; track fieldGroup; let i = $index) {
+        <div [formGroupName]="i" class="canvas-item">
+            <label>{{ fieldGroup.get('label')?.value }}</label>
+
+            @if (fieldGroup.get('type')?.value !== 'select') {
+            <input [type]="fieldGroup.get('type')?.value" formControlName="value" />
+            }
+
+            @if (fieldGroup.get('type')?.value === 'select') {
+            <select formControlName="value">
+                <option value="">Select {{ fieldGroup.get('label')?.value }}</option>
+                @for (opt of fieldGroup.get('options')?.value; track opt) {
+                <option [value]="opt">{{ opt }}</option>
+                }
+            </select>
+            }
+
+            @if (fieldGroup.get('value')?.invalid && fieldGroup.get('value')?.touched) {
+            <div class="error-message">Field is invalid or required</div>
+            }
+        </div>
+        }
+    </div>
+
+    @if (fieldsFormArray.length > 0) {
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+    }
+</form>

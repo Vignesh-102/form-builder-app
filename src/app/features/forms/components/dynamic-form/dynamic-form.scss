@@ -74,6 +74,7 @@
 }
 
 .form-name input {
+  flex: 1;
   text-align: center;
   font-weight: 600;
   font-size: 1.25rem;
@@ -95,72 +96,9 @@
 }
 
 /* ----------------------------- */
-/* Each Field Card (Question)   */
-/* ----------------------------- */
-.canvas-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  background: #fff;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.canvas-item:hover {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transform: translateY(-2px);
-}
-
-/* Question Label (Editable Text Input) */
-.field-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.label-editor {
-  flex: 1;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  border-bottom: 2px solid #dadce0;
-  padding: 0.3rem 0;
-  background: transparent;
-  outline: none;
-  transition: border-color 0.2s ease;
-  max-width: 60%;
-}
-
-.label-editor:focus {
-  border-bottom-color: #673ab7;
-}
-
-.label-editor::placeholder {
-  color: #999;
-}
-
-/* ----------------------------- */
-/* Preview Field Inputs          */
-/* ----------------------------- */
-.form-field-value {
-  width: 50%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #dadce0;
-  border-radius: 0.375rem;
-  background-color: #f8f9fa;
-  color: #555;
-  font-size: 0.9rem;
-  cursor: not-allowed;
-}
-
-/* ----------------------------- */
 /* Buttons                       */
 /* ----------------------------- */
-button, .action-button {
+button {
   padding: 0.5rem 1rem;
   background-color: #673ab7;
   color: white;
@@ -172,51 +110,13 @@ button, .action-button {
   transition: background-color 0.3s ease;
 }
 
-button:hover, .action-button:hover {
+button:hover {
   background-color: #5e35b1;
 }
 
-button:disabled, .action-button:disabled {
+button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-}
-
-/* Secondary Buttons */
-.action-button.secondary {
-  background-color: #e0e0e0;
-  color: #202124;
-}
-
-.action-button.secondary:hover:not(:disabled) {
-  background-color: #d6d6d6;
-}
-
-/* Form actions (submit, clear, etc.) */
-.form-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-  margin-top: 1rem;
-}
-
-/* ----------------------------- */
-/* Delete & Add Buttons          */
-/* ----------------------------- */
-.delete-btn {
-  background: transparent;
-  border: none;
-  color: #d32f2f;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
-  align-self: center;
-  margin-left: auto;
-}
-
-.delete-btn:hover {
-  color: #b71c1c;
-  transform: scale(1.15);
 }
 
 .add-btn {
@@ -235,142 +135,4 @@ button:disabled, .action-button:disabled {
 .add-btn:hover {
   background-color: #5e35b1;
   transform: scale(1.1);
-}
-
-/* ----------------------------- */
-/* Select Field Styling          */
-/* ----------------------------- */
-.select-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1rem;
-  background: #f9f9fb;
-  border-radius: 0.5rem;
-  border: 1px solid #e0e0e0;
-  transition: box-shadow 0.2s ease;
-}
-
-.select-options:hover {
-  box-shadow: 0 2px 6px rgba(103, 58, 183, 0.15);
-}
-
-.options-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.option-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #fff;
-  border-radius: 0.375rem;
-  border: 1px solid #ddd;
-  padding: 0.4rem 0.6rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.option-row:hover {
-  border-color: #673ab7;
-  box-shadow: 0 1px 4px rgba(103, 58, 183, 0.1);
-}
-
-.option-index {
-  font-size: 0.8rem;
-  color: #666;
-  background: #f1eefc;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-weight: 600;
-}
-
-.option-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 0.9rem;
-  padding: 0.4rem 0;
-}
-
-.option-input:focus {
-  border-bottom: 2px solid #673ab7;
-}
-
-.add-option-btn {
-  align-self: flex-start;
-  padding: 0.4rem 0.8rem;
-  background-color: #ede7f6;
-  color: #4527a0;
-  border: 1px dashed #b39ddb;
-  border-radius: 0.375rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.add-option-btn:hover {
-  background-color: #d1c4e9;
-  transform: scale(1.03);
-}
-
-/* ----------------------------- */
-/* Select Dropdown (Preview)     */
-/* ----------------------------- */
-select {
-  appearance: none;
-  border: 1px solid #dadce0;
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  background-color: #fff;
-  background-image: linear-gradient(45deg, transparent 50%, #673ab7 50%), 
-                    linear-gradient(135deg, #673ab7 50%, transparent 50%);
-  background-position: calc(100% - 15px) calc(1em + 2px),
-                       calc(100% - 10px) calc(1em + 2px);
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
-}
-
-select:focus {
-  border-color: #673ab7;
-  outline: none;
-}
-
-select:hover {
-  border-color: #9575cd;
-}
-
-.option-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.option-input {
-  flex: 1;
-  padding: 6px 8px;
-  font-size: 14px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.delete-option-btn {
-  background: transparent;
-  border: none;
-  color: #dc3545;
-  font-size: 16px;
-  cursor: pointer;
-  line-height: 1;
-  transition: color 0.2s ease;
-}
-
-.delete-option-btn:hover {
-  color: #b52b27;
 }
