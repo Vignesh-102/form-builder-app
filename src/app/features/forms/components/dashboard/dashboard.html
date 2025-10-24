@@ -1,0 +1,28 @@
+<div class="dashboard">
+  <!-- Header -->
+  <div class="dashboard-header">
+    <h1>Forms List</h1>
+    <button class="create-btn" (click)="createForm()">+ Create Form</button>
+  </div>
+
+  <!-- Form List -->
+  @if (forms.length > 0) {
+    <div class="form-list">
+      @for (form of forms; track form.id) {
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="material-symbols-outlined">description</span>
+            <h3>{{ form.title }}</h3>
+          </div>
+          <p class="form-date">Last edited: {{ form.updatedAt | date:'short' }}</p>
+          <div class="form-actions">
+            <button (click)="openForm(form.id)">Open</button>
+            <button (click)="deleteForm(form.id)">Delete</button>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <p class="no-forms">You don’t have any forms yet. Create one to get started!</p>
+  }
+</div>

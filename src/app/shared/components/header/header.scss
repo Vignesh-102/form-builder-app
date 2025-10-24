@@ -1,0 +1,88 @@
+/* ===== Header Layout ===== */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #673ab7, #5e35b1);
+  color: #fff;
+  padding: 0.8rem 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* ===== Logo ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.3px;
+  user-select: none;
+}
+
+.logo .material-symbols-outlined {
+  font-size: 26px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+/* ===== Nav Actions ===== */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* ===== Buttons ===== */
+.nav-btn,
+.nav-icon-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+}
+
+/* Hover feedback */
+.nav-btn:hover,
+.nav-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  transform: translateY(-1px);
+}
+
+/* Icon button styling */
+.nav-icon-btn .material-symbols-outlined {
+  font-size: 28px;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+/* Optional subtle avatar background */
+.nav-icon-btn:hover .material-symbols-outlined {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .app-header {
+    padding: 0.7rem 1rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .nav-btn {
+    font-size: 0.95rem;
+  }
+}

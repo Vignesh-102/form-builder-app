@@ -1,0 +1,23 @@
+<div class="authPage">
+  <!-- Left Panel -->
+  <div class="leftPanel">
+    <div class="branding">
+      <h1>ShopSmart</h1>
+      <p>
+        {{ isLogin
+          ? 'Welcome back! Login to manage your store and orders.'
+          : 'Join now and start managing your store effortlessly.' }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="rightPanel">
+    <div class="authBox" [class.signupBox]="!isLogin">
+      <h2 class="authTitle">{{ isLogin ? 'Sign In' : 'Sign Up' }}</h2>
+
+      <app-login *ngIf="isLogin"></app-login>
+      <app-register *ngIf="!isLogin"></app-register>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+  
+  <!-- Email -->
+  <div class="formGroup">
+    <label for="email" class="label">Email</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      [class.input]="true"
+      [class.inputError]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+      placeholder="you@example.com"
+      autocomplete="email"
+    />
+
+    @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+      <p class="error">
+        {{ loginForm.get('email')?.errors?.['required'] ? 'Email is required' : '' }}
+        {{ loginForm.get('email')?.errors?.['email'] ? 'Enter a valid email' : '' }}
+      </p>
+    }
+  </div>
+
+  <!-- Password -->
+  <div class="formGroup">
+    <label for="password" class="label">Password</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      [class.input]="true"
+      [class.inputError]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+      placeholder="Your secure password"
+      autocomplete="current-password"
+    />
+
+    @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+      <p class="error">
+        {{ loginForm.get('password')?.errors?.['required'] ? 'Password is required' : '' }}
+        {{ loginForm.get('password')?.errors?.['minlength'] ? 'Password must be at least 6 characters' : '' }}
+      </p>
+    }
+  </div>
+
+  <!-- Submit Button -->
+  <button
+    type="submit"
+    class="submitButton"
+    [disabled]="isSubmitting() || loginForm.invalid"
+  >
+    {{ isSubmitting() ? 'Logging in...' : 'Login' }}
+  </button>
+
+  <p class="signupText">
+    Don't have an account?
+    <a routerLink="/register" class="signupLink">Sign Up</a>
+  </p>
+</form>
