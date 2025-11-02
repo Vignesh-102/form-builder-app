@@ -6,6 +6,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { formReducer } from './features/forms/store/form.reducer';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideStore({
       form: formReducer
-    })
+    }),
+    provideStoreDevtools({
+      maxAge: 25,
+    }),
 ]
 };

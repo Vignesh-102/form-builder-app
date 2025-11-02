@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { FormField } from '../models/form-field.model';
+import { FormField, FormState } from '../models/form-field.model';
 
 // -------------------------
 // Form field actions
@@ -29,7 +29,7 @@ export const resetForm = createAction(
 );
 
 
-export const reorderFields = createAction(
+export const updateAllFields = createAction(
   '[Form Builder] Reorder Fields',
   props<{ fields: FormField[] }>()
 );
@@ -42,7 +42,7 @@ export const undo = createAction('[Form] Undo');
 export const redo = createAction('[Form] Redo');
 
 
-//adding options
+// adding options
 export const updateFieldOptions = createAction(
   '[form] update field options',
   props<{ index: number; options: string[] }>()

@@ -76,7 +76,7 @@ export const formReducer = createReducer(
   }),
 
   //reorder
-  on(FormActions.reorderFields, (state, { fields }): FormState => ({
+  on(FormActions.updateAllFields, (state, { fields }): FormState => ({
     ...state,
     undoStack: [...state.undoStack, state.fields],
     redoStack: [],
