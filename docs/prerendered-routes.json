@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/form-builde-app": {},
+    "/form-builde-app/formBuilder": {},
+    "/form-builde-app/login": {},
+    "/form-builde-app/register": {}
+  }
+}
