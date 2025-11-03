@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/form-builde-app',
+  basePath: '/form-builder-app',
   supportedLocales: {
   "en-US": ""
 },

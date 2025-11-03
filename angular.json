@@ -20,6 +20,8 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "outputPath": "docs",
+            "baseHref": "/form-builder-app/",
             "assets": [
               {
                 "glob": "**/*",
