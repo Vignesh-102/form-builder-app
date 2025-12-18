@@ -123,3 +123,25 @@ button:disabled {
   background-color: #5e35b1;
   transform: scale(1.1);
 }
+
+
+@media (max-width: 768px) {
+
+  .builder-container {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .toolbox {
+    position: static;
+    width: auto;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .canvas {
+    margin-left: 0;
+    width: auto;
+    padding: 1rem;
+  }
+}

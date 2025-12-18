@@ -12,6 +12,6 @@ export default `<!doctype html>
 
 <body ngcm="">
   <app-root></app-root>
-<script src="main-YSDHVOPT.js" type="module"></script></body>
+<script src="main-VFAVES5T.js" type="module"></script></body>
 
 </html>`;
