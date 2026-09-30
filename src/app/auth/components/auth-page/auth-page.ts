@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../login/login';
 import { Register } from '../register/register';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-auth-page',
-  imports: [Login,Register, CommonModule],
+  imports: [Login, Register],
   templateUrl: './auth-page.html',
   styleUrl: './auth-page.scss'
 })

@@ -5,8 +5,8 @@
       <h1>ShopSmart</h1>
       <p>
         {{ isLogin
-          ? 'Welcome back! Login to manage your store and orders.'
-          : 'Join now and start managing your store effortlessly.' }}
+        ? 'Welcome back! Login to manage your store and orders.'
+        : 'Join now and start managing your store effortlessly.' }}
       </p>
     </div>
   </div>
@@ -16,8 +16,12 @@
     <div class="authBox" [class.signupBox]="!isLogin">
       <h2 class="authTitle">{{ isLogin ? 'Sign In' : 'Sign Up' }}</h2>
 
-      <app-login *ngIf="isLogin"></app-login>
-      <app-register *ngIf="!isLogin"></app-register>
+      @if (isLogin) {
+        <app-login></app-login>
+      }
+      @if (!isLogin) {
+        <app-register></app-register>
+      }
     </div>
   </div>
 </div>
